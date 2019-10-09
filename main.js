@@ -59,15 +59,16 @@ new Vue({
                 if (this.pHealth >= 90) {
                     this.pHealth = 100;
                 }
-                else this.pHealth + 10;
-                if (this.pHealth <= 0) {
-                    this.pHealth = 0;
-                    alert('you LOST!!');
-                    this.isStart = false;
-                }
-                else this.mAttack(10);
+                else this.pHealth += 10;
+                // if (this.pHealth <= 0) {
+                //     this.pHealth = 0;
+                //     alert('you LOST!!');
+                //     this.isStart = false;
+                // }
+                 this.mAttack(10);
+                this.logStore.unshift({ isPlayer: true, text: `Player Healed by 10 points`});
             }
-            this.logStore.unshift({ isPlayer: true, text: `Player Healed by 10 points`});
+            
         },
         gUp() {
             this.isStart = false;
